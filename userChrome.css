@@ -50,3 +50,47 @@
 .tabbrowser-tab:not(:last-of-type) {
   border-right: 1px solid #aaa !important;
 }
+
+/*
+ * Taken from Reddit
+ * https://www.reddit.com/r/FirefoxCSS/comments/7dclp7/multirow_tabs_in_ff57/
+ */
+
+/* New activity in tab */
+.tabbrowser-tab[titlechanged] .tab-text.tab-label {
+  color: #990000 !important;
+  font-size: 10px !important;
+  font-style: italic !important;
+}
+
+/* Selected (loaded) */
+.tabbrowser-tab[selected="true"] .tab-label {
+  color: #eee !important;
+  font-size: 12px !important;
+  font-style: normal !important;
+  font-weight: bold !important;
+  text-shadow: 1px 2px 1px #000 !important;
+}
+
+/* Loaded but unread (not selected) */
+.tabbrowser-tab:not([selected="true"])[unread] .tab-label {
+  color: #2565BA !important;
+  font-size: 10px !important;
+  font-style: normal !important;
+}
+
+/* Not loaded yet (also visited) */
+.tabbrowser-tab:not([selected="true"])[pending] .tab-label,
+.tabbrowser-tab:not([selected="true"])[visited] .tab-label {
+  color: #8c8c8c !important;
+  font-size: 10px !important;
+  font-style: italic !important;
+}
+
+/* loading */
+.tabbrowser-tab[busy] .tab-text.tab-label {
+  color: #006bb3 !important;
+  font-size: 10px !important;
+  font-style: italic !important;
+}
+
