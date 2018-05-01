@@ -1,0 +1,52 @@
+/* MULTI-ROW TABS
+   based on https://www.reddit.com/r/FirefoxCSS/comments/7dclp7/multirow_tabs_in_ff57/ 
+   If tabs are too narrow, go into about:config and adjust browser.tabs.tabMinWidth
+*/
+
+/* General Rules */
+#tabbrowser-tabs .arrowscrollbox-scrollbox {
+  overflow: visible; 
+  display: block;
+}
+#tabbrowser-tabs .scrollbox-innerbox {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: var(--tab-min-height);
+  max-height: calc((5 * var(--tab-min-height)) + 1px) !important; /* up to 5 rows */
+}
+.tabbrowser-tab, .tab-background {
+  height: var(--tab-min-height);
+}
+.tab-stack {
+  width: 100%;
+}
+#main-window[sizemode="normal"] #TabsToolbar {
+  border-left: 1px solid #888 !important;
+}
+/* Title bar rules */
+#titlebar, #titlebar-buttonbox {
+  height: var(--tab-min-height) !important;
+}
+#titlebar {
+  margin-bottom: calc(var(--tab-min-height)*-1) !important;
+}
+#main-window[sizemode="maximized"] #titlebar {
+  margin-bottom: calc(6px + var(--tab-min-height)*-1) !important;
+}
+#titlebar:active {
+  margin-bottom: 0 !important;
+}
+#titlebar:active #titlebar-content {
+  margin-bottom: var(--tab-min-height) !important;
+}
+/* Remove unnecessary buttons and the blank areas at left and right */
+#tabbrowser-tabs .scrollbutton-up, #tabbrowser-tabs .scrollbutton-down, 
+#alltabs-button, .tabbrowser-tab:not([fadein]), 
+.titlebar-placeholder[type="pre-tabs"], 
+.titlebar-placeholder[type="post-tabs"] {
+  display: none;
+}
+/* Ensure a border between tabs (#aaa is a light gray) */
+.tabbrowser-tab:not(:last-of-type) {
+  border-right: 1px solid #aaa !important;
+}
