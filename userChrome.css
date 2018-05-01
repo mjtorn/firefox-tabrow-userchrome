@@ -89,3 +89,8 @@
   font-style: italic !important;
 }
 
+/* tab hover shows close button, but current tab always shows it */
+.tabbrowser-tab:not([pinned]):hover .tab-close-button {
+  display: -moz-box !important
+}
+
