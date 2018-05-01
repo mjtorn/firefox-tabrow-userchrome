@@ -12,7 +12,7 @@
   display: flex;
   flex-wrap: wrap;
   min-height: var(--tab-min-height);
-  max-height: calc((5 * var(--tab-min-height)) + 1px) !important; /* up to 5 rows */
+  max-height: calc((3 * var(--tab-min-height)) + 1px) !important; /* up to 3 rows */
 }
 .tabbrowser-tab, .tab-background {
   height: var(--tab-min-height);
